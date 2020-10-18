@@ -1,18 +1,13 @@
 #Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)
 import http.client
 import re
-def Get_Cookies():
-  conn = http.client.HTTPSConnection("www.2-class.com")
-  payload = ''
-  headers = {}
-  conn.request("GET", "/courses", payload, headers)
-  res = conn.getresponse()
-  data = res.read()
-  sid = re.findall(r"sid=(.+?);", res.getheader("Set-Cookie"))[0]
-  reqtoken = re.findall(r"reqtoken:\"(.+?)\"", data.decode("utf-8"))[0]
-  print(reqtoken)
-  print(sid)
-  return reqtoken,sid
+import xlrd  # 导入库
+
+
+def Function(account,password):
+  reqtoken, sid = Get_Cookies()
+  Login(account,password, reqtoken, sid)
+  Start(reqtoken,sid)
 def Login(account,password,reqtoken,sid):
   conn = http.client.HTTPSConnection("www.2-class.com")
   payload = "{\"account\":\""+account+"\",\"password\":\""+password+"\",\"checkCode\":\"\",\"codeKey\":\"\",\"reqtoken\":\"" + reqtoken + "\"}"
@@ -35,6 +30,18 @@ def Login(account,password,reqtoken,sid):
   res = conn.getresponse()
   data = res.read()
   print(data.decode("utf-8"))
+def Get_Cookies():
+  conn = http.client.HTTPSConnection("www.2-class.com")
+  payload = ''
+  headers = {}
+  conn.request("GET", "/courses", payload, headers)
+  res = conn.getresponse()
+  data = res.read()
+  sid = re.findall(r"sid=(.+?);", res.getheader("Set-Cookie"))[0]
+  reqtoken = re.findall(r"reqtoken:\"(.+?)\"", data.decode("utf-8"))[0]
+  print(reqtoken)
+  print(sid)
+  return reqtoken,sid
 def Compelete_Task(payload,sid):
   conn = http.client.HTTPSConnection("www.2-class.com")
   payload = payload
@@ -77,16 +84,20 @@ def Compelete_Final_Task(reqtoken, sid):
     res = conn.getresponse()
     data = res.read()
     print(data.decode("utf-8"))
+def Start(reqtoken,sid):
+  payload = "{\"courseId\":\"781\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+  Compelete_Task(payload, sid)
+  payload = "{\"courseId\":\"780\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":0},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":\"0,1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+  Compelete_Task(payload, sid)
+  payload = "{\"courseId\":\"836\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2,\"answer\":2}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+  Compelete_Task(payload, sid)
+  Compelete_Final_Task(reqtoken, sid)
 
-reqtoken,sid=Get_Cookies()
-
-Login("dengjunyuan595","56216359",reqtoken,sid)
-payload = "{\"courseId\":\"781\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
-Compelete_Task(payload,sid)
-payload = "{\"courseId\":\"780\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":0},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":\"0,1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
-Compelete_Task(payload,sid)
-payload = "{\"courseId\":\"836\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2,\"answer\":2}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
-Compelete_Task(payload,sid)
-Compelete_Final_Task(reqtoken, sid)
-
-
+def Piliang():
+  xlsx = xlrd.open_workbook("C:\\Users\\hanbings\\Downloads\\Student_Qingjiao_List.xlsx")
+  sheet1 = xlsx.sheets()[0]
+  i = 0
+  while i < sheet1.nrows:
+    Function(sheet1.row_values(i)[0],str(sheet1.row_values(i)[1])[0:8])
+    i += 1
+Piliang()
