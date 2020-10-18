@@ -96,7 +96,7 @@ def Start(reqtoken,sid):
   Compelete_Task(payload, sid)
   Compelete_Final_Task(reqtoken, sid)
 def Piliang():
-  xlsx = xlrd.open_workbook("C:\\Users\\hanbings\\Downloads\\Student_Qingjiao_List.xlsx")
+  xlsx = xlrd.open_workbook("./Student_Qingjiao_List.xlsx")
   sheet1 = xlsx.sheets()[0]
   i = 0
   while i < sheet1.nrows:
