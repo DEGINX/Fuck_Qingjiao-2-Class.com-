@@ -1,9 +1,14 @@
 #Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)
+# ___________             __     ________  .__                   __.__
+# \_   _____/_ __   ____ |  | __ \_____  \ |__| ____    ____    |__|__|____    ____
+#  |    __)|  |  \_/ ___\|  |/ /  /  / \  \|  |/    \  / ___\   |  |  \__  \  /  _ \
+#  |     \ |  |  /\  \___|    <  /   \_/.  \  |   |  \/ /_/  >  |  |  |/ __ \(  <_> )
+#  \___  / |____/  \___  >__|_ \ \_____\ \_/__|___|  /\___  /\__|  |__(____  /\____/
+#      \/              \/     \/        \__>       \//_____/\______|       \/
+
 import http.client
 import re
 import xlrd  # 导入库
-
-
 def Function(account,password):
   reqtoken, sid = Get_Cookies()
   Login(account,password, reqtoken, sid)
@@ -39,8 +44,6 @@ def Get_Cookies():
   data = res.read()
   sid = re.findall(r"sid=(.+?);", res.getheader("Set-Cookie"))[0]
   reqtoken = re.findall(r"reqtoken:\"(.+?)\"", data.decode("utf-8"))[0]
-  print(reqtoken)
-  print(sid)
   return reqtoken,sid
 def Compelete_Task(payload,sid):
   conn = http.client.HTTPSConnection("www.2-class.com")
@@ -92,7 +95,6 @@ def Start(reqtoken,sid):
   payload = "{\"courseId\":\"836\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2,\"answer\":2}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
   Compelete_Task(payload, sid)
   Compelete_Final_Task(reqtoken, sid)
-
 def Piliang():
   xlsx = xlrd.open_workbook("C:\\Users\\hanbings\\Downloads\\Student_Qingjiao_List.xlsx")
   sheet1 = xlsx.sheets()[0]
