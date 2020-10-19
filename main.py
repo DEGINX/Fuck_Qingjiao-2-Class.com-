@@ -12,6 +12,7 @@ import xlrd  # 导入库
 
 taskNum = 0
 taskBigNum = 0
+taskContestNum = 0
 
 
 def Function(account, password):
@@ -151,8 +152,8 @@ def Compelete_Contest_Task(reqtoken, sid):
     data = res.read()
     print(data.decode("utf-8"))
     if "\"success\":true" in data.decode("utf-8"):
-        global taskBigNum
-        taskBigNum += 1
+        global taskContestNum
+        taskContestNum += 1
 
 
 
@@ -187,6 +188,7 @@ def B():
     print("      \\/              \\/     \\/        \\__>       \\//_____/\\______|       \\/")
     print("\033[33m")
     print("共完成普通试题: " + str(taskNum) + "份 " + "共完成考试试题: " + str(taskBigNum) + "份 \n")
+    print("顺路完成了" + str(taskContestNum) + "份竞赛题")
     print("作者: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)")
     print("Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)\n")
     print("如果被抓 务必铭记 不然网站管理员就不知道为什么全国的题都在一个IP做的了 ：）")
