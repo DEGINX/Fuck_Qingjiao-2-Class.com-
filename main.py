@@ -22,11 +22,14 @@ def Function(account, password):
 
 def Login(account, password, reqtoken, sid):
     conn = http.client.HTTPSConnection("www.2-class.com")
-    payload = "{\"account\":\"" + account + "\",\"password\":\"" + password + "\",\"checkCode\":\"\",\"codeKey\":\"\",\"reqtoken\":\"" + reqtoken + "\"}"
+    payload = "{\"account\":\"" + account + "\",\"password\":\"" + password + "\",\"checkCode\":\"\"," \
+                                                                              "\"codeKey\":\"\",\"reqtoken\":\"" + \
+              reqtoken + "\"} "
     headers = {
         'Host': 'www.2-class.com',
         'Connection': 'keep-alive',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/86.0.4240.75 Safari/537.36',
         'Content-Type': 'application/json;charset=UTF-8',
         'Accept': '*/*',
         'Origin': 'https://www.2-class.com',
@@ -62,7 +65,8 @@ def Compelete_Task(payload, sid):
     headers = {
         'Host': ' www.2-class.com',
         'Connection': ' keep-alive',
-        'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/86.0.4240.75 Safari/537.36',
         'Content-Type': ' application/json;charset=UTF-8',
         'Accept': ' */*',
         'Origin': ' https://www.2-class.com',
@@ -84,11 +88,17 @@ def Compelete_Task(payload, sid):
 
 def Compelete_Final_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
-    payload = "{\"list\":[{\"questionId\":677,\"questionContent\":\"A\"},{\"questionId\":678,\"questionContent\":\"A\"},{\"questionId\":679,\"questionContent\":\"B\"},{\"questionId\":680,\"questionContent\":\"D\"},{\"questionId\":681,\"questionContent\":\"A\"},{\"questionId\":682,\"questionContent\":\"B\"},{\"questionId\":683,\"questionContent\":\"A\"},{\"questionId\":684,\"questionContent\":\"C\"},{\"questionId\":685,\"questionContent\":\"C\"},{\"questionId\":686,\"questionContent\":\"A\"}],\"exam\":\"final\",\"reqtoken\":\"" + reqtoken + "\"}"
+    payload = "{\"list\":[{\"questionId\":677,\"questionContent\":\"A\"},{\"questionId\":678," \
+              "\"questionContent\":\"A\"},{\"questionId\":679,\"questionContent\":\"B\"},{\"questionId\":680," \
+              "\"questionContent\":\"D\"},{\"questionId\":681,\"questionContent\":\"A\"},{\"questionId\":682," \
+              "\"questionContent\":\"B\"},{\"questionId\":683,\"questionContent\":\"A\"},{\"questionId\":684," \
+              "\"questionContent\":\"C\"},{\"questionId\":685,\"questionContent\":\"C\"},{\"questionId\":686," \
+              "\"questionContent\":\"A\"}],\"exam\":\"final\",\"reqtoken\":\"" + reqtoken + "\"} "
     headers = {
         'Host': ' 2-class.com',
         'Connection': ' keep-alive',
-        'User-Agent': ' Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.75 Safari/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/86.0.4240.75 Safari/537.36',
         'Content-Type': ' application/json;charset=UTF-8',
         'Accept': ' */*',
         'Origin': ' https://2-class.com',
@@ -108,16 +118,61 @@ def Compelete_Final_Task(reqtoken, sid):
         taskBigNum += 1
 
 
+def Compelete_Contest_Task(reqtoken, sid):
+    conn = http.client.HTTPSConnection("2-class.com")
+    payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
+              "\"questionContent\":\"C\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
+              "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
+              "\"questionContent\":\"D\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
+              "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
+              "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
+              "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
+              "\"questionContent\":\"B\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
+              "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
+              "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
+              "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+    headers = {
+        'Host': ' 2-class.com',
+        'Connection': ' keep-alive',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) '
+                      'Chrome/86.0.4240.75 Safari/537.36',
+        'Content-Type': ' application/json;charset=UTF-8',
+        'Accept': ' */*',
+        'Origin': ' https://2-class.com',
+        'Sec-Fetch-Site': ' same-origin',
+        'Sec-Fetch-Mode': ' cors',
+        'Sec-Fetch-Dest': ' empty',
+        'Accept-Encoding': ' gzip, deflate, br',
+        'Accept-Language': ' zh-CN,zh-HK;q=0.9,zh;q=0.8,en;q=0.7',
+        'Cookie': ' sid=' + sid + ';'
+    }
+    conn.request("POST", "/api/quiz/commit", payload, headers)
+    res = conn.getresponse()
+    data = res.read()
+    print(data.decode("utf-8"))
+    if "\"success\":true" in data.decode("utf-8"):
+        global taskBigNum
+        taskBigNum += 1
+
+
+
 def Start(reqtoken, sid):
-    payload = "{\"courseId\":\"781\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    payload = "{\"courseId\":\"781\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}]," \
+              "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
     Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"780\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":0},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":\"0,1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    payload = "{\"courseId\":\"780\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":0},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":\"0,1," \
+              "2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
     Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"835\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"1,2\"},{\"examId\":2,\"answer\":\"0,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    payload = "{\"courseId\":\"835\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"1,2\"},{\"examId\":2," \
+              "\"answer\":\"0,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
     Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"836\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2,\"answer\":2}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    payload = "{\"courseId\":\"836\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2," \
+              "\"answer\":2}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
     Compelete_Task(payload, sid)
     Compelete_Final_Task(reqtoken, sid)
+    Compelete_Contest_Task(reqtoken, sid)
 
 
 def B():
@@ -136,7 +191,6 @@ def B():
     print("Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)\n")
     print("如果被抓 务必铭记 不然网站管理员就不知道为什么全国的题都在一个IP做的了 ：）")
     print("\033[0m")
-
 
 
 def Piliang():
