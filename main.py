@@ -45,7 +45,7 @@ def Login(account, password, reqtoken, sid):
     conn.request("POST", "/api/user/login", payload, headers)
     res = conn.getresponse()
     data = res.read()
-    print(data.decode("utf-8"))
+    # print(data.decode("utf-8"))
 
 
 def Get_Cookies():
@@ -156,8 +156,9 @@ def Compelete_Contest_Task(reqtoken, sid):
         taskContestNum += 1
 
 
-
 def Start(reqtoken, sid):
+    print(
+        "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     payload = "{\"courseId\":\"781\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
               "\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}]," \
               "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
@@ -174,6 +175,7 @@ def Start(reqtoken, sid):
     Compelete_Task(payload, sid)
     Compelete_Final_Task(reqtoken, sid)
     Compelete_Contest_Task(reqtoken, sid)
+    print("\n")
 
 
 def B():
@@ -188,7 +190,7 @@ def B():
     print("      \\/              \\/     \\/        \\__>       \\//_____/\\______|       \\/")
     print("\033[33m")
     print("共完成普通试题: " + str(taskNum) + "份 " + "共完成考试试题: " + str(taskBigNum) + "份")
-    print("顺路完成了" + str(taskContestNum) + "份竞赛题 \n")
+    print("顺利完成了" + str(taskContestNum) + "个账号的任务 \n")
     print("作者: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)")
     print("Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)\n")
     print("如果被抓 务必铭记 不然网站管理员就不知道为什么全国的题都在一个IP做的了 ：）")
@@ -202,6 +204,7 @@ def Piliang():
     while i < sheet1.nrows:
         Function(sheet1.row_values(i)[0], str(sheet1.row_values(i)[1])[0:8])
         i += 1
+
 
 Piliang()
 B()
