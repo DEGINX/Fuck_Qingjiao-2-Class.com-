@@ -9,6 +9,7 @@
 import http.client
 import re
 import xlrd  # 导入库
+import random
 
 taskNum = 0
 taskBigNum = 0
@@ -121,7 +122,9 @@ def Compelete_Final_Task(reqtoken, sid):
 
 def Compelete_Contest_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
-    payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
+    Random=random.randint(0,6)
+    if Random==0:#100分
+        payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
               "\"questionContent\":\"C\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
               "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
               "\"questionContent\":\"D\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
@@ -132,6 +135,66 @@ def Compelete_Contest_Task(reqtoken, sid):
               "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
               "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
               "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+    elif Random==1:#95分
+        payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
+                  "\"questionContent\":\"D\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
+                  "\"questionContent\":\"B\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
+                  "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+    elif Random==2:#90分
+        payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
+                  "\"questionContent\":\"B\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
+                  "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+    elif Random == 3 or Random == 4:#85分
+        payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
+                  "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+    elif Random == 5:  # 80分
+        payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"A\"},{\"questionId\":2682," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
+                  "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+    elif Random == 6:  # 75分
+        payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"A\"},{\"questionId\":2682," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2753,\"questionContent\":\"A\"},{\"questionId\":2755," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
+                  "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
     headers = {
         'Host': ' 2-class.com',
         'Connection': ' keep-alive',
