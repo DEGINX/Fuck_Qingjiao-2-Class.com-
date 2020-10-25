@@ -122,7 +122,7 @@ def Compelete_Final_Task(reqtoken, sid):
 
 def Compelete_Contest_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
-    Random=random.randint(0,6)
+    Random=random.randint(0,10)
     if Random==0:#100分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
               "\"questionContent\":\"C\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
@@ -159,7 +159,7 @@ def Compelete_Contest_Task(reqtoken, sid):
                   "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
                   "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
                   "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
-    elif Random == 3 or Random == 4:#85分
+    elif Random == 3 or Random == 4or Random == 7 or Random == 8:#85分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
                   "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
                   "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
@@ -171,7 +171,7 @@ def Compelete_Contest_Task(reqtoken, sid):
                   "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
                   "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
                   "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
-    elif Random == 5:  # 80分
+    elif Random == 5or Random == 9 or Random == 10:  # 80分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
                   "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"A\"},{\"questionId\":2682," \
                   "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
