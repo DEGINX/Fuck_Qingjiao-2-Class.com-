@@ -225,21 +225,21 @@ def Start(reqtoken, sid):
     print(
         "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     payload = "{\"courseId\":\"837\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
-              "\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}]," \
+              "\"answer\":\"0,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"838\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,2\"},{\"examId\":2," \
+              "\"answer\":\"0,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"782\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2," \
+              "\"answer\":0},{\"examId\":3,\"answer\":2},{\"examId\":4,\"answer\":1},{\"examId\":5,\"answer\":0}]," \
               "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
     Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"838\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
-              "\"answer\":0},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":\"0,1," \
-              "2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"782\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"1,2\"},{\"examId\":2," \
-              "\"answer\":\"0,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"779\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2," \
-              "\"answer\":2}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    payload = "{\"courseId\":\"779\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":1},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":3},{\"examId\":5,\"answer\":0}]," \
+              "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
     Compelete_Task(payload, sid)
     Compelete_Final_Task(reqtoken, sid)
-    Compelete_Contest_Task(reqtoken, sid)
+    # Compelete_Contest_Task(reqtoken, sid)
     print("\n")
 
 
