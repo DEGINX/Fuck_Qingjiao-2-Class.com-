@@ -220,6 +220,7 @@ def Compelete_Contest_Task(reqtoken, sid):
 
 
 def Start(reqtoken, sid):
+    print(taskBigNum)
     print(
         "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     payload = "{\"courseId\":\"781\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
