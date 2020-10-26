@@ -288,7 +288,7 @@ def B():
 def Piliang():
     xlsx = xlrd.open_workbook("./Student_Qingjiao_List.xlsx")
     sheet1 = xlsx.sheets()[0]
-    i = 1651
+    i = 0
     while i < sheet1.nrows:
         #Random=random.randint(0,1900);
         Function(sheet1.row_values(i)[0], str(sheet1.row_values(i)[1])[0:8])
