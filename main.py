@@ -219,8 +219,32 @@ def Compelete_Contest_Task(reqtoken, sid):
         taskContestNum += 1
 
 
+# 高一级
 def Start(reqtoken, sid):
     print(taskBigNum)
+    print(
+        "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
+    payload = "{\"courseId\":\"837\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}]," \
+              "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"838\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":0},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":\"0,1," \
+              "2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"782\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"1,2\"},{\"examId\":2," \
+              "\"answer\":\"0,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"779\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2," \
+              "\"answer\":2}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    Compelete_Final_Task(reqtoken, sid)
+    Compelete_Contest_Task(reqtoken, sid)
+    print("\n")
+
+
+# 高二级
+def Start2(reqtoken, sid):
     print(
         "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     payload = "{\"courseId\":\"781\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
@@ -264,11 +288,11 @@ def B():
 def Piliang():
     xlsx = xlrd.open_workbook("./Student_Qingjiao_List.xlsx")
     sheet1 = xlsx.sheets()[0]
-    i = 0
+    i = 1651
     while i < sheet1.nrows:
+        #Random=random.randint(0,1900);
         Function(sheet1.row_values(i)[0], str(sheet1.row_values(i)[1])[0:8])
         i += 1
-
 
 Piliang()
 B()
