@@ -19,7 +19,7 @@ taskContestNum = 0
 def Function(account, password):
     reqtoken, sid = Get_Cookies()
     Login(account, password, reqtoken, sid)
-    Start(reqtoken, sid)
+    Start3(reqtoken, sid)
 
 
 def Login(account, password, reqtoken, sid):
@@ -122,20 +122,20 @@ def Compelete_Final_Task(reqtoken, sid):
 
 def Compelete_Contest_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
-    Random=random.randint(0,10)
-    if Random==0:#100分
+    Random = random.randint(0, 10)
+    if Random == 0:  # 100分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
-              "\"questionContent\":\"C\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
-              "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
-              "\"questionContent\":\"D\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
-              "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
-              "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
-              "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
-              "\"questionContent\":\"B\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
-              "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
-              "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
-              "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
-    elif Random==1:#95分
+                  "\"questionContent\":\"C\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
+                  "\"questionContent\":\"D\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
+                  "\"questionContent\":\"B\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
+                  "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
+                  "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+    elif Random == 1:  # 95分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
                   "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
                   "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
@@ -147,7 +147,7 @@ def Compelete_Contest_Task(reqtoken, sid):
                   "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
                   "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
                   "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
-    elif Random==2:#90分
+    elif Random == 2:  # 90分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
                   "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
                   "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
@@ -159,7 +159,7 @@ def Compelete_Contest_Task(reqtoken, sid):
                   "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
                   "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
                   "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
-    elif Random == 3 or Random == 4or Random == 7 or Random == 8:#85分
+    elif Random == 3 or Random == 4 or Random == 7 or Random == 8:  # 85分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
                   "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
                   "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
@@ -171,7 +171,7 @@ def Compelete_Contest_Task(reqtoken, sid):
                   "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
                   "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
                   "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
-    elif Random == 5or Random == 9 or Random == 10:  # 80分
+    elif Random == 5 or Random == 9 or Random == 10:  # 80分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
                   "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"A\"},{\"questionId\":2682," \
                   "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
@@ -266,6 +266,38 @@ def Start2(reqtoken, sid):
     print("\n")
 
 
+# 五年级
+def Start3(reqtoken, sid):
+    print(
+        "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
+    payload = "{\"courseId\":\"848\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,3\"},{\"examId\":2," \
+              "\"answer\":\"0,1,2,4\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"829\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2," \
+              "\"answer\":\"0,1,3\"},{\"examId\":3,\"answer\":\"0,1,2\"}],\"exam\":\"course\"," \
+              "\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"825\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2," \
+              "\"answer\":2},{\"examId\":3,\"answer\":2},{\"examId\":4,\"answer\":3},{\"examId\":5,\"answer\":\"0,1," \
+              "2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"826\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":3},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":1},{\"examId\":5,\"answer\":\"0," \
+              "2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"773\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":2},{\"examId\":3,\"answer\":0},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}]," \
+              "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"847\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"2,3\"},{\"examId\":2," \
+              "\"answer\":\"0,1,3\"},{\"examId\":3,\"answer\":\"0,1,2\"}],\"exam\":\"course\"," \
+              "\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    Compelete_Final_Task(reqtoken, sid)
+    Compelete_Contest_Task(reqtoken, sid)
+    print("\n")
+
+
 def B():
     global taskNum
     global taskBigNum
@@ -290,9 +322,10 @@ def Piliang():
     sheet1 = xlsx.sheets()[0]
     i = 0
     while i < sheet1.nrows:
-        #Random=random.randint(0,1900);
+        # Random=random.randint(0,1900);
         Function(sheet1.row_values(i)[0], str(sheet1.row_values(i)[1])[0:8])
         i += 1
+
 
 Piliang()
 B()
