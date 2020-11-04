@@ -88,6 +88,7 @@ def Compelete_Task(payload, sid):
         taskNum += 1
 
 
+# 期末考试
 def Compelete_Final_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
     payload = "{\"list\":[{\"questionId\":677,\"questionContent\":\"A\"},{\"questionId\":678," \
@@ -120,9 +121,11 @@ def Compelete_Final_Task(reqtoken, sid):
         taskBigNum += 1
 
 
+# 知识竞赛
 def Compelete_Contest_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
     Random = random.randint(0, 10)
+    time = random.randint(100, 300)
     if Random == 0:  # 100分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
                   "\"questionContent\":\"C\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
@@ -134,7 +137,7 @@ def Compelete_Contest_Task(reqtoken, sid):
                   "\"questionContent\":\"B\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
                   "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
                   "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
-                  "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+                  "\"questionContent\":\"A\"}],\"time\":" + str(time) + ",\"reqtoken\":\"" + reqtoken + "\"} "
     elif Random == 1:  # 95分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
                   "\"questionContent\":\"A\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
@@ -297,6 +300,48 @@ def Start3(reqtoken, sid):
     Compelete_Contest_Task(reqtoken, sid)
     print("\n")
 
+# 七年级（初一）
+def Start7(reqtoken, sid):
+    # 【初一】 毒品并不在另一个世界
+    payload = "{\"courseId\":\"844\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,2\"},{\"examId\":2,\"answer\":\"0,3\"}],\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    # 【初一】 X侦探：平行世界禁毒记
+    payload = "{\"courseId\":\"843\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":\"0,1,2\"}],\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    # 不需要期末考试
+    #Compelete_Final_Task(reqtoken, sid)
+    # 知识竞赛
+    Compelete_Contest_Task(reqtoken, sid)
+    print("\n")
+
+# 八年级（初二）
+def Start8(reqtoken, sid):
+    # 【初二】 名人明星影响大 远离毒品责任重
+    payload = "{\"courseId\":\"841\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,2,3\"},{\"examId\":2,\"answer\":\"1,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    # 【初三】 毒品危害地球安全 禁毒侠重拳出击
+    payload = "{\"courseId\":\"842\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"2,3\"},{\"examId\":2,\"answer\":\"1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    # 不需要期末考试
+    #Compelete_Final_Task(reqtoken, sid)
+    # 知识竞赛
+    Compelete_Contest_Task(reqtoken, sid)
+    print("\n")
+
+# 九年级（初三）
+def Start9(reqtoken, sid):
+    print("-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
+    # 【初三】 打赢禁毒战争 捍卫美好生活
+    payload = "{\"courseId\":\"839\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,3\"},{\"examId\":2,\"answer\":\"1,3\"}],\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    # 【初三】 毒品危害地球安全 禁毒侠重拳出击
+    payload = "{\"courseId\":\"840\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"1,2\"},{\"examId\":2,\"answer\":\"0,1,2,3\"}],\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    # 不需要期末考试
+    #Compelete_Final_Task(reqtoken, sid)
+    # 知识竞赛
+    Compelete_Contest_Task(reqtoken, sid)
+    print("\n")
 
 def B():
     global taskNum
@@ -323,7 +368,10 @@ def Piliang():
     i = 0
     while i < sheet1.nrows:
         # Random=random.randint(0,1900);
-        Function(sheet1.row_values(i)[0], str(sheet1.row_values(i)[1])[0:8])
+        account = sheet1.row_values(i)[0]
+        password = str(sheet1.row_values(i)[1])[0:8]
+        print("================ " + str(i + 1) + " / " + str(sheet1.nrows) + ", " + account + " ================")
+        Function(account, password)
         i += 1
 
 
