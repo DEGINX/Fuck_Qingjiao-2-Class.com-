@@ -298,6 +298,49 @@ def Start3(reqtoken, sid):
     print("\n")
 
 
+# 初一
+def Start4(reqtoken, sid):
+    print(
+        "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
+    payload = "{\"courseId\":\"859\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2,\"answer\":\"0,1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"844\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,2\"},{\"examId\":2,\"answer\":\"0,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"843\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":\"0,1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"771\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":3},{\"examId\":2,\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":3},{\"examId\":5,\"answer\":1}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"772\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":3},{\"examId\":3,\"answer\":0},{\"examId\":4,\"answer\":0},{\"examId\":5,\"answer\":\"0,1\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
+    Compelete_Task(payload, sid)
+    #############################################
+    payload = "{\"courseId\":\"848\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,3\"},{\"examId\":2," \
+              "\"answer\":\"0,1,2,4\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"829\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2," \
+              "\"answer\":\"0,1,3\"},{\"examId\":3,\"answer\":\"0,1,2\"}],\"exam\":\"course\"," \
+              "\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"825\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2," \
+              "\"answer\":2},{\"examId\":3,\"answer\":2},{\"examId\":4,\"answer\":3},{\"examId\":5,\"answer\":\"0,1," \
+              "2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"826\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":3},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":1},{\"examId\":5,\"answer\":\"0," \
+              "2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"773\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
+              "\"answer\":2},{\"examId\":3,\"answer\":0},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}]," \
+              "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"847\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"2,3\"},{\"examId\":2," \
+              "\"answer\":\"0,1,3\"},{\"examId\":3,\"answer\":\"0,1,2\"}],\"exam\":\"course\"," \
+              "\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    Compelete_Final_Task(reqtoken, sid)
+    Compelete_Contest_Task(reqtoken, sid)
+    print("\n")
+
+
 def B():
     global taskNum
     global taskBigNum
