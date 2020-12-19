@@ -234,7 +234,24 @@ def Start3(reqtoken, sid):
     Compelete_Final_Task(reqtoken, sid)
     Compelete_Contest_Task(reqtoken, sid)
     print("\n")
-
+    
+# 初三
+def Start9(reqtoken, sid):
+    print(
+        "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
+    payload = "{\"courseId\":\"861\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,2\"},{\"examId\":2,\"answer\":\"0,1,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"839\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,3\"},{\"examId\":2,\"answer\":\"1,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"840\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"1,2\"},{\"examId\":2,\"answer\":\"0,1,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"768\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1\"},{\"examId\":2,\"answer\":2},{\"examId\":3,\"answer\":\"0,1,2,3\"},{\"examId\":4,\"answer\":\"0,1,2,3\"},{\"examId\":5,\"answer\":3}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    payload = "{\"courseId\":\"767\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":0},{\"examId\":3,\"answer\":0},{\"examId\":4,\"answer\":0},{\"examId\":5,\"answer\":1}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    Compelete_Task(payload, sid)
+    Compelete_Final_Task(reqtoken, sid)
+    Compelete_Contest_Task(reqtoken, sid)
+    print("\n")
 
 # 初一
 def Start4(reqtoken, sid):
