@@ -7,9 +7,10 @@
 #      \/              \/     \/        \__>       \//_____/\______|       \/
 
 import http.client
-import re
-import xlrd  # 导入库
 import random
+import re
+
+import xlrd  # 导入库
 
 taskNum = 0
 taskBigNum = 0
@@ -19,7 +20,7 @@ taskContestNum = 0
 def Function(account, password):
     reqtoken, sid = Get_Cookies()
     Login(account, password, reqtoken, sid)
-    Start3(reqtoken, sid)
+    Start7(reqtoken, sid)
 
 
 def Login(account, password, reqtoken, sid):
@@ -124,7 +125,8 @@ def Compelete_Final_Task(reqtoken, sid):
 # 知识竞赛
 def Compelete_Contest_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
-    Random = random.randint(0, 10)
+    # 要求必须满分
+    Random = 0  # random.randint(0, 10)
     time = random.randint(100, 300)
     if Random == 0:  # 100分
         payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
@@ -300,6 +302,7 @@ def Start3(reqtoken, sid):
     Compelete_Contest_Task(reqtoken, sid)
     print("\n")
 
+
 # 七年级（初一）
 def Start7(reqtoken, sid):
     # 【初一】 毒品并不在另一个世界
@@ -309,10 +312,11 @@ def Start7(reqtoken, sid):
     payload = "{\"courseId\":\"843\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":\"0,1,2\"}],\"reqtoken\":\"" + reqtoken + "\"}"
     Compelete_Task(payload, sid)
     # 不需要期末考试
-    #Compelete_Final_Task(reqtoken, sid)
+    # Compelete_Final_Task(reqtoken, sid)
     # 知识竞赛
     Compelete_Contest_Task(reqtoken, sid)
     print("\n")
+
 
 # 八年级（初二）
 def Start8(reqtoken, sid):
@@ -323,14 +327,16 @@ def Start8(reqtoken, sid):
     payload = "{\"courseId\":\"842\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"2,3\"},{\"examId\":2,\"answer\":\"1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
     Compelete_Task(payload, sid)
     # 不需要期末考试
-    #Compelete_Final_Task(reqtoken, sid)
+    # Compelete_Final_Task(reqtoken, sid)
     # 知识竞赛
     Compelete_Contest_Task(reqtoken, sid)
     print("\n")
 
+
 # 九年级（初三）
 def Start9(reqtoken, sid):
-    print("-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
+    print(
+        "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     # 【初三】 打赢禁毒战争 捍卫美好生活
     payload = "{\"courseId\":\"839\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,3\"},{\"examId\":2,\"answer\":\"1,3\"}],\"reqtoken\":\"" + reqtoken + "\"}"
     Compelete_Task(payload, sid)
@@ -338,50 +344,8 @@ def Start9(reqtoken, sid):
     payload = "{\"courseId\":\"840\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"1,2\"},{\"examId\":2,\"answer\":\"0,1,2,3\"}],\"reqtoken\":\"" + reqtoken + "\"}"
     Compelete_Task(payload, sid)
     # 不需要期末考试
-    #Compelete_Final_Task(reqtoken, sid)
+    # Compelete_Final_Task(reqtoken, sid)
     # 知识竞赛
-    Compelete_Contest_Task(reqtoken, sid)
-    print("\n")
-
-# 初一
-def Start4(reqtoken, sid):
-    print(
-        "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
-    payload = "{\"courseId\":\"859\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2,\"answer\":\"0,1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"844\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,2\"},{\"examId\":2,\"answer\":\"0,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"843\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":\"0,1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"771\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":3},{\"examId\":2,\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":3},{\"examId\":5,\"answer\":1}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"772\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2,\"answer\":3},{\"examId\":3,\"answer\":0},{\"examId\":4,\"answer\":0},{\"examId\":5,\"answer\":\"0,1\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
-    Compelete_Task(payload, sid)
-    #############################################
-    payload = "{\"courseId\":\"848\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,3\"},{\"examId\":2," \
-              "\"answer\":\"0,1,2,4\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"829\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2," \
-              "\"answer\":\"0,1,3\"},{\"examId\":3,\"answer\":\"0,1,2\"}],\"exam\":\"course\"," \
-              "\"reqtoken\":\"" + reqtoken + "\"} "
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"825\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2," \
-              "\"answer\":2},{\"examId\":3,\"answer\":2},{\"examId\":4,\"answer\":3},{\"examId\":5,\"answer\":\"0,1," \
-              "2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"826\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
-              "\"answer\":3},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":1},{\"examId\":5,\"answer\":\"0," \
-              "2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"773\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
-              "\"answer\":2},{\"examId\":3,\"answer\":0},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}]," \
-              "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
-    Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"847\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"2,3\"},{\"examId\":2," \
-              "\"answer\":\"0,1,3\"},{\"examId\":3,\"answer\":\"0,1,2\"}],\"exam\":\"course\"," \
-              "\"reqtoken\":\"" + reqtoken + "\"} "
-    Compelete_Task(payload, sid)
-    Compelete_Final_Task(reqtoken, sid)
     Compelete_Contest_Task(reqtoken, sid)
     print("\n")
 
