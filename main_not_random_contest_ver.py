@@ -1,4 +1,4 @@
-# Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)
+# Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com) && F_Unction(3593329288@qq.com)
 # ___________             __     ________  .__                   __.__
 # \_   _____/_ __   ____ |  | __ \_____  \ |__| ____    ____    |__|__|____    ____
 #  |    __)|  |  \_/ ___\|  |/ /  /  / \  \|  |/    \  / ___\   |  |  \__  \  /  _ \
@@ -19,7 +19,7 @@ taskContestNum = 0
 def Function(account, password):
     reqtoken, sid = Get_Cookies()
     Login(account, password, reqtoken, sid)
-    Start4(reqtoken, sid)
+    Start3(reqtoken, sid)
 
 
 def Login(account, password, reqtoken, sid):
@@ -87,15 +87,14 @@ def Compelete_Task(payload, sid):
         global taskNum
         taskNum += 1
 
-
 def Compelete_Final_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
-    payload = "{\"list\":[{\"questionId\":677,\"questionContent\":\"A\"},{\"questionId\":678," \
-              "\"questionContent\":\"A\"},{\"questionId\":679,\"questionContent\":\"B\"},{\"questionId\":680," \
-              "\"questionContent\":\"D\"},{\"questionId\":681,\"questionContent\":\"A\"},{\"questionId\":682," \
-              "\"questionContent\":\"B\"},{\"questionId\":683,\"questionContent\":\"A\"},{\"questionId\":684," \
-              "\"questionContent\":\"C\"},{\"questionId\":685,\"questionContent\":\"C\"},{\"questionId\":686," \
-              "\"questionContent\":\"A\"}],\"exam\":\"final\",\"reqtoken\":\"" + reqtoken + "\"} "
+    payload = "{\"list\":[{\"questionId\":691,\"questionContent\":\"D\"},{\"questionId\":692,"\
+              "\"questionContent\":\"D\"},{\"questionId\":693,\"questionContent\":\"C\"},{\"questionId\":694," \
+              "\"questionContent\":\"B\"},{\"questionId\":695,\"questionContent\":\"D\"},{\"questionId\":696," \
+              "\"questionContent\":\"D\"},{\"questionId\":697,\"questionContent\":\"B\"},{\"questionId\":698," \
+              "\"questionContent\":\"C\"},{\"questionId\":699,\"questionContent\":\"C\"},{\"questionId\":700," \
+              "\"questionContent\":\"B\"}],\"exam\":\"final\",\"reqtoken\":\"" + reqtoken + "\"}"
     headers = {
         'Host': ' 2-class.com',
         'Connection': ' keep-alive',
@@ -122,17 +121,17 @@ def Compelete_Final_Task(reqtoken, sid):
 
 def Compelete_Contest_Task(reqtoken, sid):
     conn = http.client.HTTPSConnection("2-class.com")
-    payload = "{\"list\":[{\"questionId\":2744,\"questionContent\":\"B\"},{\"questionId\":2681," \
-              "\"questionContent\":\"C\"},{\"questionId\":2745,\"questionContent\":\"B\"},{\"questionId\":2682," \
-              "\"questionContent\":\"A\"},{\"questionId\":2685,\"questionContent\":\"A\"},{\"questionId\":2687," \
-              "\"questionContent\":\"D\"},{\"questionId\":2753,\"questionContent\":\"D\"},{\"questionId\":2755," \
-              "\"questionContent\":\"A\"},{\"questionId\":2692,\"questionContent\":\"B\"},{\"questionId\":2757," \
-              "\"questionContent\":\"A\"},{\"questionId\":2693,\"questionContent\":\"C\"},{\"questionId\":2760," \
-              "\"questionContent\":\"A\"},{\"questionId\":2761,\"questionContent\":\"A\"},{\"questionId\":2762," \
-              "\"questionContent\":\"B\"},{\"questionId\":2699,\"questionContent\":\"D\"},{\"questionId\":2700," \
-              "\"questionContent\":\"A\"},{\"questionId\":2705,\"questionContent\":\"D\"},{\"questionId\":2706," \
-              "\"questionContent\":\"A\"},{\"questionId\":2770,\"questionContent\":\"B\"},{\"questionId\":2771," \
-              "\"questionContent\":\"A\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
+    payload = "{\"list\":[{\"questionId\":2948,\"questionContent\":\"D\"},{\"questionId\":2949," \
+              "\"questionContent\":\"B\"},{\"questionId\":2888,\"questionContent\":\"B\"},{\"questionId\":2889," \
+              "\"questionContent\":\"D\"},{\"questionId\":2893,\"questionContent\":\"B\"},{\"questionId\":2957," \
+              "\"questionContent\":\"D\"},{\"questionId\":2958,\"questionContent\":\"D\"},{\"questionId\":2895," \
+              "\"questionContent\":\"A\"},{\"questionId\":2898,\"questionContent\":\"B\"},{\"questionId\":2963," \
+              "\"questionContent\":\"A\"},{\"questionId\":2899,\"questionContent\":\"B\"},{\"questionId\":2932," \
+              "\"questionContent\":\"D\"},{\"questionId\":2904,\"questionContent\":\"D\"},{\"questionId\":2969," \
+              "\"questionContent\":\"A\"},{\"questionId\":2905,\"questionContent\":\"B\"},{\"questionId\":2906," \
+              "\"questionContent\":\"B\"},{\"questionId\":2939,\"questionContent\":\"B\"},{\"questionId\":2909," \
+              "\"questionContent\":\"A\"},{\"questionId\":2911,\"questionContent\":\"A\"},{\"questionId\":2912," \
+              "\"questionContent\":\"B\"}],\"time\":281,\"reqtoken\":\"" + reqtoken + "\"} "
     headers = {
         'Host': ' 2-class.com',
         'Connection': ' keep-alive',
@@ -158,8 +157,10 @@ def Compelete_Contest_Task(reqtoken, sid):
 
 
 # 高一级
-def Start(reqtoken, sid):
+def Start1(reqtoken, sid):
     print(taskBigNum)
+    print("payload已过期！")
+    return
     print(
         "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     payload = "{\"courseId\":\"837\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
@@ -182,30 +183,37 @@ def Start(reqtoken, sid):
 
 
 # 高二级
-def Start2(reqtoken, sid):
+def Start(reqtoken, sid):
     print(
         "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
-    payload = "{\"courseId\":\"781\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
-              "\"answer\":2},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":3}]," \
-              "\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+    payload ="{\"courseId\":\"1113\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,3\"},{\"examId\":2," \
+              "\"answer\":\"0,1,3\"}],\"reqtoken\":\"" +reqtoken + "\"}"
     Compelete_Task(payload, sid)
-    payload = "{\"courseId\":\"780\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":2},{\"examId\":2," \
-              "\"answer\":0},{\"examId\":3,\"answer\":1},{\"examId\":4,\"answer\":2},{\"examId\":5,\"answer\":\"0,1," \
-              "2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
+
+    payload = "{\"courseId\":\"1088\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2,"\
+              "\"answer\":2}],\"reqtoken\":\"" + reqtoken + "\"}"
     Compelete_Task(payload, sid)
+
+    '''
     payload = "{\"courseId\":\"835\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"1,2\"},{\"examId\":2," \
               "\"answer\":\"0,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
     Compelete_Task(payload, sid)
+
     payload = "{\"courseId\":\"836\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":1},{\"examId\":2," \
               "\"answer\":2}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
     Compelete_Task(payload, sid)
+    '''
+
     Compelete_Final_Task(reqtoken, sid)
     Compelete_Contest_Task(reqtoken, sid)
     print("\n")
 
 
+
 # 五年级
 def Start3(reqtoken, sid):
+    print("payload已过期！")
+    return
     print(
         "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     payload = "{\"courseId\":\"848\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,3\"},{\"examId\":2," \
@@ -237,6 +245,8 @@ def Start3(reqtoken, sid):
     
 # 初三
 def Start9(reqtoken, sid):
+    print("payload已过期！")
+    return
     print(
         "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     payload = "{\"courseId\":\"861\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":\"0,1,2\"},{\"examId\":2,\"answer\":\"0,1,2,3\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"} "
@@ -255,6 +265,8 @@ def Start9(reqtoken, sid):
 
 # 初一
 def Start4(reqtoken, sid):
+    print("payload已过期！")
+    return
     print(
         "-----------------------------------------------------------" + sid + "-----------------------------------------------------------")
     payload = "{\"courseId\":\"859\",\"examCommitReqDataList\":[{\"examId\":1,\"answer\":0},{\"examId\":2,\"answer\":\"0,1,2\"}],\"exam\":\"course\",\"reqtoken\":\"" + reqtoken + "\"}"
@@ -309,14 +321,14 @@ def B():
     print("\033[33m")
     print("共完成普通试题: " + str(taskNum) + "份 " + "共完成考试试题: " + str(taskBigNum) + "份")
     print("顺利完成了" + str(taskContestNum) + "个账号的任务 \n")
-    print("作者: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)")
-    print("Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com)\n")
+    print("作者: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com) && F_Unction(3593329288@qq.com)")
+    print("Author: Bilibili@JonyanDunh(1309634881@qq.com) && Hanbings(3219065882@qq.com) && F_Unction(3593329288@qq.com)\n")
     print("如果被抓 务必铭记 不然网站管理员就不知道为什么全国的题都在一个IP做的了 ：）")
     print("\033[0m")
 
 
 def Piliang():
-    xlsx = xlrd.open_workbook("./Student_Qingjiao_List.xlsx")
+    xlsx = xlrd.open_workbook("./Student_Qingjiao_List.xls")
     sheet1 = xlsx.sheets()[0]
     i = 0
     while i < sheet1.nrows:
